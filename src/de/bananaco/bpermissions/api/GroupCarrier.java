@@ -116,7 +116,7 @@ public abstract class GroupCarrier extends PermissionCarrier {
             sortGroups(gr);
         }
         for (int i = 0; i < gr.size(); i++) {
-            groups.add(gr.get(i).getNameLowerCase());
+            groups.add(gr.get(i).getName());
         }
         return groups;
     }

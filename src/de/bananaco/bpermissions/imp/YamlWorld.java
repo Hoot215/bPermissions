@@ -205,6 +205,7 @@ public class YamlWorld extends World {
         if (wm.getAutoSave() && wm.getAutoSort()) {
             save();
         }
+
     }
 
     public boolean save() {
@@ -246,8 +247,8 @@ public class YamlWorld extends World {
             gfile.createNewFile();
         }
         boolean sorting = wm.getAutoSort();
-		String def = getDefaultGroup();
-                
+        String def = getDefaultGroup();
+
         if (sorting) {
             uconfig = new YamlConfiguration();
             gconfig = new YamlConfiguration();
@@ -285,18 +286,16 @@ public class YamlWorld extends World {
         // Sort them :D
         @SuppressWarnings({"rawtypes", "unchecked"})
         List<Group> groups = new ArrayList(grp);
-        
+
         if (sorting) {
             MetaData.sortGroups(groups);
         }
 
         for (Calculable group : groups) {
             String name;
-            if (sorting) {
-                name = group.getName().toLowerCase();
-            } else {
-                name = group.getName();
-            }
+
+            name = group.getName();
+
             gconfig.set(GROUPS + "." + name + "." + PERMISSIONS, group.serialisePermissions(sorting));
             gconfig.set(GROUPS + "." + name + "." + GROUPS, group.serialiseGroups(sorting));
             // MetaData
