@@ -202,6 +202,7 @@ public class YamlWorld extends World {
             }
         }
         wm.setAutoSave(autoSave);
+        
         if (wm.getAutoSave() && wm.getAutoSort()) {
             save();
         }
